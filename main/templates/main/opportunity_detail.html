@@ -1,0 +1,35 @@
+{% extends "main/base.html" %}
+{% block content %}
+<style>
+  .location{
+  font-style:italic;
+  margin-top:10px;
+  }
+  .mb-4{
+
+    letter-spacing:2px;
+    color:#000;
+  }
+</style>
+<div>
+    <h4 class="text-center mb-4">Opportunity Details</h4>
+</div>
+  <article class="media content-section text-center">
+    <img class="rounded-circle article-img" src="{{ object.account.image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <h3><a class="mr-2" href="" style="text-decoration:none;">{{ object.title }}</a> for <a class="mr-2" href="" style="text-decoration:none;">{{ object.account }}</a></h3>
+          <h5 class="location">{{ object.account.location }}</h5>
+          <div class="mb-4">
+            <a class="btn btn-secondary mt-1 mb-1" href="{% url 'opportunity-update' object.id %}">Update</a>
+            <a class="btn btn-danger  mt-1 mb-1" href="{% url 'opportunity-delete' object.id %}">Delete</a>
+          </div>
+      </div>
+      <h5>Amount: {{ object.amount }}</h5>
+      <p class="article-content">Stage: {{ object.stage }}</p>
+    </div>
+  </article>
+{% endblock content %}
+
+
+
